@@ -13,15 +13,16 @@ about PCA: In this context, the usefulness of PCA need to be re-evaluated and ma
 
 about trade-off between many parameters: also valid for more complex DCM 
 
-I’d simply speculate about the EC based on the results already published about the FC (Finn, etc.)
+(WAS SOMEHWERE) I’d simply speculate about the EC based on the results already published about the FC (Finn, etc.)
 
 One important thing in my opinion about the classification of subjects is that they are so separable (already in FC but even more in EC) That actually random links perform quite well. We don’t stress this much because we don’t have any plot about that. Of course, you can find discriminative networks in DMN or wherever you want, they are all over the brain...
 
 DCM / global workspace / consciousness
 
-
-
-
+TO STRESS (RESULTS/DISCUSSION): 
+- because we use z-scores, what discriminates between subjects/conditions is the ranking of the estimated EC weights (irrespective of the spread of the EC distribution); this means that subjects differ by the place of specific EC connections in the whole-brain ranking
+- the perfect classification says that the discriminative EC patterns are very stable
+- band-pass filtering does not prevent stable lags between BOLD signals
 
 
 OLD:
