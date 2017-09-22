@@ -12,38 +12,44 @@
 
 \title{Online Methods}
 
-\author{Pallares V*, Insabato A*, Sanjuan A, xxx. K{\"u}hn S, Deco G, Gilson M}
+\author{Pallares V*, Insabato A*, Sanjuan A, Mantini D, K{\"u}hn S, Deco G, Gilson M}
 
 \maketitle
 
 \section{Description of fMRI datasets}
 
-Three datasets acquired at different places were used in this work. The first one was used to study day-to-day variability of resting-state sessions from the same subject (dataset A). The second dataset (dataset B) is publicly available and is part of the Consortium for Reliability and Reproducibility (CoRR) (REF: http://www.nature.com/articles/sdata201449). We used this dataset to generalize the results to a larger number of subjects scanned in a different location. The third dataset (dataset C) was to classify both subjects and conditions (resting-state vs. free naturalistic viewing).
-
-We provide details about the acquisition of the blood-oxygen-level dependent (BOLD) signals for the three datasets. 
-For Dataset A and B, we used the automated anatomical labeling (AAL) parcellation with 116 ROIs covering the whole brain, including the cerebellum \cite{Tzourio2002}; for Dataset C a parcellation of 66 ROIs covering the whole cortex \cite{Hagmann_PB_2008}.
+Three datasets acquired at different locations were used in this work. The first one was used to study day-to-day variability of resting-state sessions from the same subject along a 6-months period (dataset A). The uniqueness of this data can provide information about how stable the functional connectome of a person is during long periods of time and strengthens the robustness of the results. The second dataset (dataset B) is publicly available and is part of the Consortium for Reliability and Reproducibility (CoRR) (REF: http://www.nature.com/articles/sdata201449). We used this dataset to generalize the results of the discriminability to a larger number of subjects. The third dataset (dataset C) was used to include not only the classification of subjects but also of conditions (resting-state vs. movie viewing). We provide next details about the acquisition of the blood-oxygen-level dependent (BOLD) signals for the three datasets. It is important to remark that the results of comparing the different measures and estimates of connectivity hold in spite of the fact that the data was collected in different scanners and preprocessed with different pipelines, which contributes to generalization. 
 
 \subsection{Dataset A}
 
 This dataset has two parts. The first part (A1) is longitudinal and consists of resting-state fMRI sessions from 8 subjects (age 24-32, 6 female). 2 subjects (one male, one female) were not able to continue the study and were discarded. The other 6 subjects underwent scanning between 40 and 50 times along a period of 6 months. The second part of the dataset (A2) was acquired during the same period of time. A total 50 subjects (age 18-32, all female) were scanned during one rsMRI session using the same MRI sequences. Participants were free of psychiatric disorder according to personal interview (Mini-International Neuropsychiatric Interview REF) and had never suffered from a mental disease. The study was approved by the local ethics committee (Charit{\'e} University Clinic, Berlin). 
 
+Images were acquired on a 3 T Magnetom Trio MRI scanner system (Siemens Medical Systems, Erlangen, Germany) using a 12-channel radiofrequency head coil. Structural images were obtained using a three-dimensional T1-weighted magnetization-prepared gradient-echo sequence (MPRAGE) based on the ADNI protocol (www.adni-info.org) (repetition time (TR) = 2500 ms; echo time (TE) = 4.77 ms; TI = 1100 ms, acquisition matrix = $256 \times 256 \times 192$ mm$^3$, flip angle = 7$^\circ$; bandwidth=140 Hz/pixel, $1 \times 1 \times 1$ mm$^3$ voxel size). Functional images were collected using a T2*-weighted echo planar imaging (EPI) sequence sensitive to blood oxygen level dependent (BOLD) contrast (TR = 2000 ms, TE = 30 ms, image matrix = $64 \times 64$, FOV = $216 \times 216 \times 129$ mm$^3$, flip angle = 80$^\circ$, bandwidth=2042 Hz/pixel, voxel size=$3 \times 3 \times 3$ mm$^3$, 36 axial slices using GRAPPA acceleration factor, 5:08 min duration).
+
 \subsubsection{Pre-processing}
 
 The data was preprocessed using SPM5 (REF) and DPARSF (REF) after discarding the first 10 volumes of each session, and included: slice timing and head motion correction (6 parameters spatial transformation), spatial normalization to the Montreal Neurological Institute (MNI) template, and spatial filtering of 4 mm FWHM. The data was parcellated using the Automated Anatomical Labeling (AAL) atlas (REF) into 116 regions of interest (ROI). Linear trends were removed from the fMRI time courses before band-pass filtering (0.01 - 0.08 Hz). Participants were instructed to remain with their eyes closed and data acquisition had to be constrained to 5~min per scan due to experimental limitations. 
+We applied the automated anatomical labeling (AAL) parcellation with 116 ROIs covering the whole brain, including the cerebellum \cite{Tzourio2002}.
+
 
 \subsection{Dataset B}
 
 This dataset consists of 10 fMRI resting-state sessions acquired from 30 healthy participants every three days for one month (10-minutes length). 
 
+MRI Imaging sessions were performed using a GE MR750 3.0 Tesla scanner (GE Medical Systems, Waukesha, WI) at CCBD, Hangzhou Normal University. T2-weighted echo-planar imaging (EPI: TR = 2000 ms, TE = 30 ms, flip angle = 90$^\circ$, field of view =$ 220 \times 220$ mm, matrix = $64 \times 64$, voxel size = $3.4 \times 3.4 \times 3.4$ mm, 43 slices) sequence was performed to obtain resting state fMRI images for 10 minutes. A T1-weighted Fast Spoiled Gradient echo (FSPGR: TR = 8.1 ms, TE = 3.1 ms, TI = 450 ms, flip angle = 8$^\circ$, field of view = $256 \times 256$ mm, matrix = $256 \times 256$, voxel size =$ 1.0 \times 1.0 \times 1.0$ mm, 176 sagittal slices) was carried out to acquire a high-resolution anatomical image of the brain structure. To minimize head movement, straps and foam pads were used to fix the head snugly during each scan. The participants were instructed to relax and remain still with their eyes open, not to fall asleep, and not to think about anything in particular. The screen presented a fixation point and after the scans, all the participants were interviewed, and none of them reported to have fallen asleep in the scanner. The time of day of MRI acquisition was controlled within participants. This data was also parcellated into 116 ROIs using the AAL parcellation.
+
+
 \subsubsection{Pre-processing}
 
-The first 5 fMRI volumes were discarded in order to let the BOLD signal reach stability. The pre-processing pipeline included: slice-timing correction, motion correction, co-registration of the T1 anatomical image to the mean functional image, detrending, regression of 6 movement parameters, 5 PCA white matter and csf Compcorr, and spatial normalization to MNI coordinates. Scrubbing with Power 0.5 and linear interpolation was applied. Data was parcellated into 116 ROI (AAL), and time courses were band-pass filtered between 0.01 and 0.08 Hz. No global signal regression and spatial smoothing were applied. 
+Data was preprocessed with DPABI. The first 5 fMRI volumes were discarded in order to let the BOLD signal reach stability. The pre-processing pipeline included: slice-timing correction, motion correction, co-registration of the T1 anatomical image to the mean functional image, detrending, regression of 6 movement parameters, 5 PCA white matter and csf Compcorr, and spatial normalization to MNI coordinates. Scrubbing with Power 0.5 and linear interpolation was applied. Data was parcellated into 116 ROI (AAL), and time courses were band-pass filtered between 0.01 and 0.08 Hz. No global signal regression and spatial smoothing were applied. 
 
 \subsection{Dataset C}
 
-We used a third dataset to study the discrimination between subjects and conditions. In this case, a total of 22 subjects (age 20-31, 15 females) were scanned during rest with eyes opened and natural viewing condition. Volunteers were informed about the experimental procedures, which were approved by the Ethics Committee of the Chieti University, and signedisorderd a written informed consent.
+We used a third dataset to study the discrimination between subjects and conditions. In this case, a total of 22 subjects (age 20-31, 15 females) were scanned during rest with eyes opened and natural viewing condition. Volunteers were informed about the experimental procedures, which were approved by the Ethics Committee of the Chieti University, and signed a written informed consent.
 
-Functional imaging was performed with a 3T MR scanner (Achieva; Philips Medical Systems, Best, The Netherlands) at the Institute for Advanced Biomedical Technologies in Chieti, Italy.
+Data was acquired with a 3T MR scanner (Achieva; Philips Medical Systems, Best, The Netherlands) at the Institute for Advanced Biomedical Technologies in Chieti, Italy. The functional images were acquired using T2*-weighted echo-planar images (EPI) with BOLD contrast using SENSE imaging. EPIs comprised of 32 axial slices acquired in ascending order and covering the entire brain (230 x 230 in-plane matrix, TR/TE=2~s/3.5~s, flip angle = 90$^\circ$, voxel size=$2.875 \times 2.875 \times 3.5$~mm$^3$). For each subject, 2 and 3 scanning runs of 10 minutes duration were acquired for resting state and natural viewing, respectively. Only the first 2 movie scans are used here, to have the same number of time points for the two conditions (i.e., 20 minutes each). Each run included 5 dummy volumes - allowing the MRI signal to reach steady state and an additional 300 functional volumes that were used for analysis. Eye position was monitored during scanning using a pupil-corneal reßection system at 120~Hz (Iscan, Burlington, MA, USA). A three-dimensional high-resolution T1-weighted image, for anatomical reference, was acquired using an MP-RAGE sequence (TR/TE=8.1~s/3.7~s, voxel size=$0.938 \times 0.938 \times 1$~mm$^3$) at the end of the scanning session.
+
+
 In the resting state, participants fixated a red target with a diameter of 0.3 visual degrees on a black screen. In the natural viewing condition, subjects watched and listened to 30 minutes of the movie `The Good, the Bad and the Ugly' in a window of $24\times10.2$ visual degrees. Visual stimuli were projected on a translucent screen using an LCD projector, and viewed by the participants through a mirror tilted by 45 degrees. Auditory stimuli were delivered using MR-compatible headphones.
 For each subject, 2 and 3 scanning runs of 10 minutes duration were acquired for resting state and natural viewing, respectively. 
 
@@ -57,10 +63,10 @@ Mean BOLD time series were extracted from $N = 66$ regions of interest (ROIs) of
 
 \subsection{Generic structural connectivity (SC)}
 
-Structural connectivity is used in the model to determine the skeleton of the effective connectivity. We use a generic SC for all subjects and sessions: one for Datasets A and B; one for Dataset C.
+Structural connectivity is used in the model to determine the skeleton of the effective connectivity. A generic SC for datasets A and B is estimated from... XXX
 
 
-Anatomical connectivity was estimated from Diffusion Spectrum Imaging (DSI) data collected in five healthy right-handed male participantincludes \cite{Hagmann_PB_2008}. The gray matter was first parcellated into the $N = 66$ ROIs, using the same low-resolution atlas used for the FC analysis. For each subject, we performed white matter tractography between pairs of cortical areas to estimate a neuro-anatomical connectivity matrix. In our method, the DSI values are only used to determine the skeleton: a binary matrix of structural connectivity (SC) obtained by averaging the matrices over subjects and applying a threshold for the existence of connections. The strengths of individual intracortical connections do not come from DSI values, but are optimized as explained below.
+Structural connectivity for Dataset C was estimated from Diffusion Spectrum Imaging (DSI) data collected in five healthy right-handed male participants \cite{Hagmann_PB_2008}. The gray matter was first parcellated into the $N = 66$ ROIs, using the same low-resolution atlas used for the FC analysis. For each subject, we performed white matter tractography between pairs of cortical areas to estimate a neuro-anatomical connectivity matrix. In our method, the DSI values are only used to determine the skeleton: a binary matrix of structural connectivity (SC) obtained by averaging the matrices over subjects and applying a threshold for the existence of connections. The strengths of individual intracortical connections do not come from DSI values, but are optimized as explained below.
 It is known that DSI underestimates inter-hemispheric connections \cite{Hagmann_PB_2008}. Homotopic connections between mirrored left and right ROIs are important in order to model whole-cortex BOLD activity \cite{Messe_PCB_2014}. Here we add all such possible homotopic connections, which are tuned during the optimization as other existing connections. This slightly increases the density of structural connectivity (SC) from 27\% to 28\%.
 
 
@@ -132,9 +138,9 @@ In practice, we use the two time shifts $\tau = 0$ and $\tau = 1$~TR, as this is
 
 In order to invert the model (i.e., the model FC reproduces the experimental FC), we iteratively tune the parameters to reduce the model error defined as 
 \begin{equation} \label{eq_error_mod}
-E = \frac{1}{2} \frac{\sum_{i,j} (\Delta Q^0_{ij})^2}{\sum_{i,j} (\hat{Q}^0_{ij})^2} + \frac{1}{2} \frac{\sum_{i,j} (\Delta Q^\tau_{ij})^2}{\sum_{i,j} (\hat{Q}^\tau_{ij})^2} \ , 
+E = \frac{1}{2} \frac{\sum_{i,j} (\Delta Q^0_{ij})^2}{\sum_{i,j} (\hat{Q}^0_{ij})^2} + \frac{1}{2} \frac{\sum_{i,j} (\Delta Q^1_{ij})^2}{\sum_{i,j} (\hat{Q}^1_{ij})^2} \ , 
 \end{equation}
-where each term - for FC0 and FC1 - is the matrix distance between the model and the data observables, normalized by the norm of the latter; the difference matrices $\Delta Q^0 = \widehat{Q}^0 - Q^0$ and $\Delta Q^\tau = \widehat{Q}^\tau - Q^\tau$ .
+where each term - for FC0 and FC1 - is the matrix distance between the model and the data observables, normalized by the norm of the latter; the difference matrices $\Delta Q^0 = \widehat{Q}^0 - Q^0$ and $\Delta Q^1 = \widehat{Q}^1 - Q^1$ .
 The desired Jacobian update is the matrix
 \begin{equation}
 \Delta J^\transp = (Q^0)^{-1} [\Delta Q^0 + \Delta Q^1 \expm(J^\transp \tau)]
@@ -161,20 +167,20 @@ The optimization code is available with the empirical data on \url{github.com/Ma
 
 \subsection{Similarity between sessions}
 
-We used Pearson correlation coefficient (PCC) as a measure of similarity, both within- and between-subject. To compute the similarity between two sessions, the connectivity matrix $C^i$ for each session $i$ was transformed into a vector $v^i$ by extracting the lower triangle for FC, and by applying the SC mask for EC. Each vector $v^i$ had a size of 1x6670 for FC data, and 1x4056 for EC (116 ROIs and 6,670 connectivity links for FC and 4,056 for EC). After vectorization, the values of all the links were z-scored, using the mean and standard deviation of each $v^i$:
+We used Pearson correlation coefficient (PCC) as a measure of similarity, both within- and between-subject. To compute the similarity between two sessions, the connectivity matrix $C^i$ for each session $i$ was transformed into a vector $v^i$ by extracting the lower triangle for corrFC, and by applying the SC mask for EC. Each vector $v^i$ had a size of $1x6670$ for FC data, and $1\times4056$ for EC (116 ROIs and 6,670 connectivity links for FC and 4,056 for EC). After vectorization, the values of all the links were z-scored, using the mean and standard deviation of each $v^i$:
 \begin{equation}
 \hat{v}^i_k = \frac{v^i_k - \mathrm{mean}_k(v^i_k)}{\mathrm{std}_k(v^i_k)}
 \ ;
 \end{equation}
-then we computed the similarity between every pair of sessions in data set A1 (Figure 2A):
+Then, we computed the similarity between every pair of sessions in data set A1 (Figure 2A):
 \begin{equation} \label{eq_simil}
 S^{ij} = \mathrm{PCC}(\hat{v}^i,\hat{v}^j)
 \end{equation}
-The within-subject similarity was obtained by computing the PCC between every possible pair of vectors, $v^i$ and $v^j$ (for $i \neq j$) from the same subject. For computing the between-subject similarity of data set A1 and B, one session per subject was randomly chosen and the similarity was obtained between all the different combinations of pairs of vectors (15 PCC for 6 subjects and 435 PCC for 30 subjects). This procedure was repeated 1,000 times. Figure 2B shows the distributions of the similarity after splitting into within- and between-subject the coefficients for both FC and EC. Data set A.2 was used as well to obtain another between-subjects similarity distribution (1225 PCC for 50 subjects).
+The within-subject similarity was obtained by computing the PCC between every possible pair of vectors, $v^i$ and $v^j$ (for $i \neq j$) from the same subject. For computing the between-subject similarity of datasets A1 and B, the similarity was obtained between all the different combinations of pairs of vectors from different subjects. Figure 2B shows the distributions of the similarity after splitting into within- (in blue) and between-subject (in red) the coefficients for both corrFC and EC. Dataset A2 was used as well to obtain another between-subjects similarity distribution (in green).
 
-\subsection{Silhouette coefficients}
+\subsection{Silhouette coefficient}
 
-The silhouette coefficients are defined for each element of a population of z-scored vectors $hat{v}^{i,s}$ with indices $i$ for the session and $s$ for the subject.
+The silhouette coefficient is defined for each element of a population of z-scored vectors $\hat{v}^{i,s}$ with indices $i$ for the session and $s$ for the subject.
 Here, each subject $s$ is a cluster and the similarity in Eq.~\eqref{eq_simil} is taken as the metric, but the indices $i$ and $j$ are replaced by doublets of the type $(i,s)$ here.
 For a given data point ${i,s}$, we have the average similarity within his own cluster $s$ defined as
 \begin{equation}
@@ -186,37 +192,49 @@ and the maximum - over all other clusters - of the same average similarity, but 
 b^{i,s} =  \max_{s'}[\mathrm{mean}_{k}(S^{(i,s)(k,s')})]
 \ .
 \end{equation}
-The silhouette is then given by the following contrast between the cohesion of the element within its cluster ($a^{i,s}$) and the sepaaration from other clusters ($b^{i,s}$):
+The silhouette is then given by the following contrast between the cohesion of the element within its cluster ($a^{i,s}$) and the separation from other clusters ($b^{i,s}$):
 \begin{equation}
-\sigma^{i,s} = \frac{a^{i,s} - b^{i,s}}{\max(a^{i,s},b^{i,s})}
+\sigma^{i,s} = \frac{b^{i,s} - a^{i,s}}{\max(a^{i,s},b^{i,s})}
 \ .
 \end{equation}
-Values range to 1 for fully separated clusters to -1 for overlapping clusters.
+Values of silhouette range to 1 for fully separated clusters to -1 for overlapping clusters.
 
 \subsection{Dimensionality analysis}
 
-To study visually how the data is spread over such a high-dimensional space, we applied PCA to extract the main dimensions reducing the original data. After applying PCA to the whole data set A1 (6 subjects, 40-50 sessions per subject) the first 6 components (PC1, 2, 3, and PC4, 5, 6) of both FC and EC measures, are plotted in figure 2.c. The silhouette coefficient was computed for each point in these clouds and plotted in figure 2.d. The reason for choosing only the first 6 PCs is because the mean silhouette coefficient of EC data reaches a maximum for this value, and then starts to decrease. The silhouette of FC data needs one or two more PCs to reach a maximum (sup.). The same method was applied to the data set B (30 subjects, 10 sessions per subject), and the maximum of the mean silhouette was at 30 PCs (supp). Both distributions of the silhouette, data set A1 with the first 6 PCs and data set B with the first 30 PCs, are plotted in Figure 2E (main text).
+To study visually how the data is spread over such a high-dimensional space, we applied PCA to extract the main dimensions reducing the original data. After applying PCA to the whole dataset A1 (6 subjects, 40-50 sessions per subject) the first 6 components (PC1, 2, 3, and PC4, 5, 6) of both FC and EC measures, are plotted in figure 2C. The silhouette coefficient was computed for each point in these clouds and plotted in figure 2D. The reason for choosing only the first 6 PCs is because the mean silhouette coefficient of EC data reaches a maximum for this value, and then starts to decrease. The silhouette of FC data needs one or two more PCs to reach a maximum (sup.). The same method was applied to the data set B (30 subjects, 10 sessions per subject), and the maximum of the mean silhouette was at 30 PCs (supp). Both distributions of the silhouette, dataset A1 with the first 6 PCs and dataset B with the first 30 PCs, are plotted in Figure 2E.
 
 \subsection{Classification of subjects}
 
-Figure 3.a shows the classification procedure applied to identify subjects using connectivity measures and estimates. First, a fixed number of sessions per subject were extracted from each data set, FC and EC matrices. These matrices were vectorized as before and individually z-scored, using the mean and standard deviation of each $v^i$. Then, the corresponding classifier (kNN or MLR) was trained using two different approaches: with and without applying PCA. The reason to use both approaches is because PCA is commonly applied in machine learning as a preprocessing step in order to reduce the computational load. Some studies have already applied a kNN classifier to identification of subjects without PCA (Finn, etc.), and we wanted to assess the possible benefit of this transformation in the classification performance. Finally, the parameters of the model were obtained (for the case of MLR classifier) and tested on the remaining sessions. We used data set A1 to study the effect of increasing the train set, as well as data set B to extend the results to a larger group of subjects. The same method was also applied to data set C. Figure 3B shows the accuracy of both classifiers on the two data sets. The curves were obtained iterating over different sessions and subjects 100 times (mean and standard deviation are plotted).
+Figure 3A shows the classification procedure applied to identify subjects using connectivity measures and estimates. First, a fixed number of sessions per subject were selected from each data set, corrFC and EC matrices. These matrices were vectorized as before and individually z-scored, using the mean and standard deviation of each $v^i$. Then, the corresponding classifier (kNN or MLR) was trained using two different approaches: with and without applying PCA. 
+
+The k-NN classifier is a non-linear technique that assigns to new sample the class closest in distance (fig. S4). In our case, we use the same similarity measure used before as a metric. The database has an equal number of sessions per subject (for both corrFC and EC), from 1 to 40. The identity of the remaining sessions from the target group is predicted computing the PCC between each target session and all the sessions in the database and taking the identity with the maximum PCC (Eq. \ref{eq_knn}). The performance is computed after revealing all the predicted identities.  
+
+\begin{equation} \label{eq_knn}
+ID_j* = {\mathrm{argmax}}({PCC_{j,1}, PCC_{j,2}, ..., PCC_{j,l}}) 
+\ ,
+\end{equation}
+
+where ID* is the predicted identity for the session j, and l is the number of sessions in the database. 
+
+The MLR classifier is a classical tool in machine learning. The parameters (or regressors) of the model are adjusted in order to predict the probabilities of new samples of belonging to each category or class. We used the train set with equal number of sessions per subject to obtain this parameters. The accuracy of the classifier is evaluated by the accuracy of predicting the class of new incoming sessions. 
+
+PCA is a preprocessing step applied commonly in machine learning in order to remove noise while keeping the dimensions that capture most of the variance of the data. When applying PCA, the original high-dimensional data is projected into a new space of low dimension. We obtained the performance of the classification with and without applying PCA, increasing the number of PCs or dimensions used to train and test the classifier (Fig. Supp). 
+
+We used dataset A1 to study the effect of increasing the samples in the train set, and dataset B to extend the results to a larger group of subjects. The same method was also applied to dataset C to classify both subjects and condition. Figure 3B shows the accuracy of both classifiers on the two data sets. The curves were obtained after iterating over different sessions and subjects 100 times with cross-validation (mean and standard deviation are plotted).
 
 \subsection{Extraction of most discriminative networks}
 
-Extraction of most discriminative networks
-We studied the links (or edges) that mostly support the classification. For datasets A1 and B these links refer to the classification of subjects, while for dataset C we extracted both subjects and condition support links.
-In order to extract support links we build upon feature selection methods commonly used in machine-learning. In particular we used Recursive Feature Elimination (RFE) in order to rank links according to their relevance for the classification xxx (Guyon et al. 2002). RFE fits an MLR to the full data and eliminate the link with the smallest weight; the procedure is repeated recursively on shrinking subsets of links until only one is left. This procedure gives a ranking of links according to their relevance for the classification.
+We studied the links that mostly support the classification. For datasets A1 and B these links refer to the classification of subjects, while for dataset C we extracted both subjects and condition support links.
+In order to extract the supporting links we build upon feature selection methods commonly used in machine learning. In particular we used Recursive Feature Elimination (RFE) to rank links according to their relevance for the classification xxx (Guyon et al. 2002). RFE fits the MLR classifier to the full dataset and removes the link with the smallest weight; the procedure is repeated recursively on shrinking subsets of links until only one is left. This procedure gives a ranking of links according to their relevance for the classification.
 
-We then evaluated the test set accuracy of MLR when increasing the number of features in the order given by the RFE ranking. The test set was composed of 10\% of randomly chosen samples and train set of the remaining 90\%. The fitting/testing was repeated 100 times for different randomly chosen test sets. We selected the number of features for which the mean test set accuracy was maximum. In order to find the maximum we chose the number of features for which the numerical derivative of the mean was less than $10^{-6}$. In order to reduce the impact of fluctuations we smoothed the series of means with a rolling average of width 2 features. Since the accuracy is expected to increase initially as a function of the number of features and then either saturate or decrease, this method allow us to find the number of features for which the classifier performance is maximum or adding more features has no practical benefit.
+We then evaluated the accuracy of MLR on the test set when increasing the number of features following the order given by the RFE ranking. The test set was composed of 10\% of randomly chosen samples and train set of the remaining 90\%. The fitting/testing was repeated 100 times for different randomly chosen test sets. We selected the number of features for which the mean test set accuracy was maximum. In order to find the maximum we chose the number of features for which the numerical derivative of the mean was less than $10^{-6}$. In order to reduce the impact of fluctuations we smoothed the series of means with a rolling average of width 2 features. Since the accuracy is expected to increase initially as a function of the number of features and then either saturate or decrease, this method allow us to find the number of features for which the classifier performance is maximum or adding more features has no practical benefit.
 
-k-NN can't be used for RFE since it does not estimate weights associated to links. In principle k-NN could be used as a model in a wrapper but given the high amount of features of our setting, wrappers cannot be evaluated on all subsets of features ($\sim 10^{300}$ model fitting/testing would be required for 1000~features). Wrappers may rely on approximate greedy algorithms, for example, eliminating the feature that scores worst. It is well known that greedy algorithms might produce inappropriate solutions if the problem does not have optimal substructure. In addition the computation time almost scales as $p^2$, while for RFE it is linear in $p$.
+k-NN cannot be used for RFE since it does not estimate weights associated to links. In principle k-NN could be used as a model in a wrapper but given the high amount of features of our setting, wrappers cannot be evaluated on all subsets of features ($\sim 10^{300}$ model fitting/testing would be required for 1000~features). Wrappers may rely on approximate greedy algorithms, for example, eliminating the feature that scores worst. It is well known that greedy algorithms might produce inappropriate solutions if the problem does not have optimal substructure. In addition the computation time almost scales as $p^2$, while for RFE it is linear in $p$.
   
   
 \subsection{Software}
 
-All analyses were performed in Python together with scikit-learn library for machine-learning routines.
-
-Network plots in Figure~5 of the main text were done in Gephi 0.9.1.
+Classification and feature extraction analyses were performed in Python together with scikit-learn library for machine-learning routines. Connectivity measures and estimates, as well as similarity analyses were perfomed in MATLAB 2016 (REF). Network plots in Figure~5 of the main text were done in Gephi 0.9.1.
 
 
 \bibliographystyle{abbrv}
