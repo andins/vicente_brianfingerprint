@@ -1,23 +1,18 @@
-﻿About PCA: at the beginning, it performed better in mi PC because of the Matlab problem. If I'm not wrong, Andrea didn't get better results with PCA in python, and our guess is that is probably due to the low number of sessions used to train, and therefore the bad estimation of the PC space. In figure 2 we can see a really good separation but because I'm using ALL the sessions in both datasets. Maybe we can comment something about this here and study further the thing (with the betas and so on as I did before) in Andrea's paper
 
 
-Fig 3: Maybe mopre intermediate links; which is why i liked those previous plots averaging over the big regions; SHOULD BE IN SI
 
 
-PCC between ranking (p 8): Comparing it in a different way? KS distance or other…
 
 
 DISCUSSION:
 
-about PCA: In this context, the usefulness of PCA need to be re-evaluated and may help for the specific dataset at hand since simple linear method can be very successful in classifying data in a sparsely populated high- dimensional space [Hughes 1968]
+
 
 about trade-off between many parameters: also valid for more complex DCM 
 
-(WAS SOMEHWERE) I’d simply speculate about the EC based on the results already published about the FC (Finn, etc.)
-
 One important thing in my opinion about the classification of subjects is that they are so separable (already in FC but even more in EC) That actually random links perform quite well. We don’t stress this much because we don’t have any plot about that. Of course, you can find discriminative networks in DMN or wherever you want, they are all over the brain...
 
-DCM / global workspace / consciousness
+DMN / global workspace / consciousness
 
 TO STRESS (RESULTS/DISCUSSION): 
 - because we use z-scores, what discriminates between subjects/conditions is the ranking of the estimated EC weights (irrespective of the spread of the EC distribution); this means that subjects differ by the place of specific EC connections in the whole-brain ranking
@@ -25,16 +20,6 @@ TO STRESS (RESULTS/DISCUSSION):
 - band-pass filtering does not prevent stable lags between BOLD signals
 
 
-OLD:
-, magneto-encephalography (MEG) and electro-encephalography (EEG) [Sato 2010]
-
-As an example, deep-brain stimulation (DBS) of the subthalamic nucleus stabilizes the tremor of Parkinson patients [Kleiner-Fisman 2006], but the induced changes in the neural dynamics are still poorly understood at the whole-brain level [Kringelbach 2007; Saenger xxx TO INSERT]. In order to refine the stimulation protocols, it is crucial to characterize and quantify how DBS affects the brain network, in this way reverse-engineering the mechanistic causes of the tremor stabilization.
 
 
 
-
-OLD REF
-1.	Kleiner-Fisman G, Herzog J, Fisman DN, Tamma F, Lyons KE, Pahwa R, et al. (2006) Subthalamic nucleus deep brain stimulation: Summary and meta-analysis of outcomes.Mov Disord, 21: S290-S304; doi: 10.1002/mds.20962 
-2.	Kringelbach ML, Jenkinson N, Owen SLF, Aziz TZ (2007) Translational principles of deep brain stimulation. Nat Rev Neurosci, 8: 623-635; doi:10.1038/nrn2196
-22. Greicius MD, Krasnow B, Reiss A, Menon V (2003) Functional connectivity in the resting brain: a network analysis of the default mode hypothesis. Proc Natl Acad Sci USA 100: 253-258
-23. 
