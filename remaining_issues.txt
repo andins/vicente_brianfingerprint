@@ -1,18 +1,14 @@
-
-
-
-
-
-
-DISCUSSION:
-
-
+FEW THINGS LEFT TO RECHECK IN DISCUSSION:
 
 about trade-off between many parameters: also valid for more complex DCM 
 
 One important thing in my opinion about the classification of subjects is that they are so separable (already in FC but even more in EC) That actually random links perform quite well. We don’t stress this much because we don’t have any plot about that. Of course, you can find discriminative networks in DMN or wherever you want, they are all over the brain...
 
 DMN / global workspace / consciousness
+
+have to say something more in Discussion about linear (MLR) versus non-linear (1NN) classification
+
+tenemos que decir algo de la comparación del número de links para clasificación perfecta contra el número de PCs 
 
 TO STRESS (RESULTS/DISCUSSION): 
 - because we use z-scores, what discriminates between subjects/conditions is the ranking of the estimated EC weights (irrespective of the spread of the EC distribution); this means that subjects differ by the place of specific EC connections in the whole-brain ranking
