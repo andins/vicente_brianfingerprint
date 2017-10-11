@@ -1,5 +1,8 @@
 FEW THINGS LEFT TO RECHECK IN DISCUSSION:
 
+stress more that we do much better than previous methods?
+
+
 about trade-off between many parameters: also valid for more complex DCM 
 
 One important thing in my opinion about the classification of subjects is that they are so separable (already in FC but even more in EC) That actually random links perform quite well. We don’t stress this much because we don’t have any plot about that. Of course, you can find discriminative networks in DMN or wherever you want, they are all over the brain...
